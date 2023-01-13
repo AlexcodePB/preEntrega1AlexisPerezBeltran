@@ -16,24 +16,16 @@ switch (mensaje) {
             let interes = parseFloat(prompt("Ingrese el Porcentaje de intereses"));
             let total = (monto * ((interes + 100)/100)) / cuotas;
             let montoInteres = monto * ((interes + 100)/100);
+            console.log(`monto con intereses ${montoInteres}`);
+            
             for (let i = 1; i <= cuotas; i++){
                 console.log(`cuota ${i}, monto a abonar ${total}`);
             }
-            console.log(`monto con intereses ${montoInteres}`);
-            console.log(`monto total a Abonar es de ${monto}`);
         }
-        else if(user == userNew && pass == passNew){
-            let monto = parseFloat(prompt("Ingrese el Monto a retitrar"));
-            let cuotas = parseInt(prompt("Ingrese la cantidad de cuotas\n 3 Coutas\n 6 Cuotas\n 12 Cuotas"));
-            let interes = parseFloat(prompt("Ingrese el Porcentaje de intereses"));
-            let total = (monto * ((interes + 100)/100)) / cuotas;
-            let montoInteres = monto * ((interes + 100)/100);
-            for (let i = 1; i <= cuotas; i++){
-                console.log(`cuota ${i}, monto a abonar ${total}`);
-            }
-            console.log(`monto con intereses ${montoInteres}`);
-            console.log(`monto total a Abonar es de ${monto}`);
+        else if (user != userAdmin && pass != passAdmin){
+            alert("El usuario no existe");
         }
+        
         break;
 
     case 2:
@@ -41,6 +33,19 @@ switch (mensaje) {
         passNew = parseInt(prompt("Ingrese una Contraseña de 4 digitos"));
         if (userNew != NaN && passNew != NaN){
             console.log("se creo un nuevo usuario");
+            let monto = parseFloat(prompt("Ingrese el Monto a retitrar"));
+            let cuotas = parseInt(prompt("Ingrese la cantidad de cuotas\n 3 Coutas\n 6 Cuotas\n 12 Cuotas"));
+            let interes = parseFloat(prompt("Ingrese el Porcentaje de intereses"));
+            let total = (monto * ((interes + 100)/100)) / cuotas;
+            let montoInteres = monto * ((interes + 100)/100);
+            console.log(`monto con intereses ${montoInteres}`);
+            
+            for (let i = 1; i <= cuotas; i++){
+                console.log(`cuota ${i}, monto a abonar ${total}`);
+            }
+        }
+        else if (userNew == NaN || passNew == NaN){
+            alert("No genero ningun usuario")
         }
         break;
 }
